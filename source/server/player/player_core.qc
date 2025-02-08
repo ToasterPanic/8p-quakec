@@ -804,19 +804,31 @@ void() Player_PickSpawnPoint =
 	entity spawn_point = world;
 	float found_viable_spawn = false;
 
+	float i = 1;
+
 	// Assign a location
 	while(!found_viable_spawn) {
-		float index = random();
+		i++;
+		if (i > 8)
+			i = 1;
 
 		// assign one of the spawnpoints
-		if (index < 0.25)
+		if (i == 1)
 			spawn_point = find(world, classname, SPAWN_1_CLASS);
-		else if (index < 0.50)
+		else if (i == 2)
 			spawn_point = find(world, classname, SPAWN_2_CLASS);
-		else if (index < 0.75)
+		else if (i == 3)
 			spawn_point = find(world, classname, SPAWN_3_CLASS);
-		else
+		else if (i == 4)
 			spawn_point = find(world, classname, SPAWN_4_CLASS);
+		else if (i == 5)
+			spawn_point = find(world, classname, SPAWN_5_CLASS);
+		else if (i == 6)
+			spawn_point = find(world, classname, SPAWN_6_CLASS);
+		else if (i == 7)
+			spawn_point = find(world, classname, SPAWN_7_CLASS);
+		else
+			spawn_point = find(world, classname, SPAWN_8_CLASS);
 
 		float found_player_here = false;
 
@@ -878,9 +890,9 @@ void() PlayerSpawn =
 	self.movetype = MOVETYPE_WALK;
 	self.max_health = self.health = PLAYER_START_HEALTH;
 	
-	// Pick an available slot from 1-4 inclusive.
+	// Pick an available slot from 1-8 inclusive.
 	if (!self.playernum) {
-		for (float i = 1; i <= 4; i++) {
+		for (float i = 1; i <= 8; i++) {
 			entity potential_player = findfloat(world, playernum, i);
 			if (potential_player == world) {
 				self.playernum = i;
@@ -893,7 +905,7 @@ void() PlayerSpawn =
 			}
 		}
 
-		// All four slots are occupied.
+		// All eight slots are occupied.
 		if (!self.playernum) {
 			SpectatorSpawn();
 			return;

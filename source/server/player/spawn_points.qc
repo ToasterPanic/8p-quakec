@@ -29,15 +29,19 @@
 #define SPAWN_PLR_2         1
 #define SPAWN_PLR_3         2
 #define SPAWN_PLR_4         3
-#define SPAWN_PLR_LEGACY    4
+#define SPAWN_PLR_5         4
+#define SPAWN_PLR_6         5
+#define SPAWN_PLR_7         6
+#define SPAWN_PLR_8         7
+#define SPAWN_PLR_LEGACY    8
 
 #define SPAWN_START_WEAPON  W_COLT
 #define SPAWN_START_MAG     8
 #define SPAWN_START_AMMO    32
 
-float player_spawns[5];
-entity spawn_points[5];
-string spawn_names[4];
+float player_spawns[9];
+entity spawn_points[9];
+string spawn_names[8];
 
 //
 // Spawns_ConvertOldClassnames()
@@ -132,7 +136,7 @@ void(float ignore_first) Spawns_SetAllNonSolid =
     if (ignore_first) start = 1;
     else start = 0;
 
-    for(float i = start; i < 4; i++) {
+    for(float i = start; i < 8; i++) {
         if (spawn_points[i] == world)
             continue;
 
@@ -153,7 +157,7 @@ void(float ignore_first) Spawns_SetAllSolid =
     if (ignore_first) start = 1;
     else start = 0;
 
-    for(float i = start; i < 4; i++) {
+    for(float i = start; i < 8; i++) {
         if (spawn_points[i] == world)
             continue;
 
@@ -292,7 +296,7 @@ void() Spawns_FillMissing =
     float i;
 
     // Count how many spawnpoints we have.
-    for(i = 0; i < 4; i++) {
+    for(i = 0; i < 8; i++) {
         spawn_points[i] = find(world, classname, spawn_names[i]);
         if (spawn_points[i] != world) {
             player_spawns[i] = true;
@@ -331,11 +335,13 @@ void() Spawns_FillMissing =
         player_spawns[SPAWN_PLR_LEGACY] = false;
     }
 
-    // Spawn points 2-4 if they dont exist
-    for(i = 1; i < 4; i++) {
+    // Spawn points 2-8 if they dont exist
+    for(i = 1; i < 8; i++) {
         if (player_spawns[i] == false) {
             spawn_points[i] = spawn();
+
             spawn_points[i].classname = spawn_names[i];
+
             spawn_points[i].angles = spawn_points[SPAWN_PLR_1].angles;
             Spawns_SetUpPoint(spawn_points[i]);
             Spawns_FindViableSpawnSpot(spawn_points[i]);
@@ -357,6 +363,10 @@ void() Spawns_SetUpClassnames =
     spawn_names[1] = SPAWN_2_CLASS;
     spawn_names[2] = SPAWN_3_CLASS;
     spawn_names[3] = SPAWN_4_CLASS;
+    spawn_names[4] = SPAWN_5_CLASS;
+    spawn_names[5] = SPAWN_6_CLASS;
+    spawn_names[6] = SPAWN_7_CLASS;
+    spawn_names[7] = SPAWN_8_CLASS;
 };
 
 //

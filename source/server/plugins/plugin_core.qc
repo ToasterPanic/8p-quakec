@@ -41,6 +41,7 @@ var struct {
     {"mapvote", ChatPlugin_MapVote, true, "Usage: mapvote <bsp_name>\nAttempts to initiate a Map Vote. Fails if one is already in progress.\n"},
     {"mapvote_y", ChatPlugin_MapVoteYes, false, "Usage: mapvote_y\n"},
     {"mapvote_n", ChatPlugin_MapVoteNo, false, "Usage: mapvote_n\n"},
+	{"8p", ChatPlugin_8pCommand, false, "Usage: 8p\nReturns the points you have.\n"},
 
 };
 
