@@ -236,7 +236,7 @@ float Pathfind (entity z, float s_wp, float e_wp) {
 			}
 		}
 	}
-	print("Waypointing failed\n");
+	//print("Waypointing failed\n"); // Shut the fuck up
 	return -1;
 }
 

@@ -26,6 +26,8 @@
 */
 #ifdef FTE
 
+localcmd("sv_enablechatplugins 1\n"); 
+
 //
 // Plugin command table
 // command_name         : Command string entered into developer console.
@@ -38,11 +40,10 @@ var struct {
     float                   requires_arguments;
     string                  command_description;
 } plugin_commands[] = {
-    {"mapvote", ChatPlugin_MapVote, true, "Usage: mapvote <bsp_name>\nAttempts to initiate a Map Vote. Fails if one is already in progress.\n"},
-    {"mapvote_y", ChatPlugin_MapVoteYes, false, "Usage: mapvote_y\n"},
-    {"mapvote_n", ChatPlugin_MapVoteNo, false, "Usage: mapvote_n\n"},
+    {":mapvote", ChatPlugin_MapVote, true, "Usage: :mapvote <bsp_name>\nAttempts to initiate a Map Vote. Fails if one is already in progress.\n"},
+    {":mapvote_y", ChatPlugin_MapVoteYes, false, "Usage: :mapvote_y\n"},
+    {":mapvote_n", ChatPlugin_MapVoteNo, false, "Usage: :mapvote_n\n"},
 	{"8p", ChatPlugin_8pCommand, false, "Usage: 8p\nReturns the points you have.\n"},
-
 };
 
 #endif // FTE

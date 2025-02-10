@@ -372,7 +372,10 @@ void() worldspawn =
 	clientstat(STAT_MAXHEALTH, EV_FLOAT, max_health);
 	clientstat(STAT_PERKS, EV_FLOAT, perks);
 
-	autocvar(sv_enablechatplugins, 0);
+	autocvar(sv_enablechatplugins, 1); 
+	// Setting this in code is the only way to automatically set it as on-
+	// for some godforsaken reason configs don't work!
+	
 	autocvar(sv_maprotationbasename, "map_rotation");
 	autocvar(sv_maprotationmode, 0);
 

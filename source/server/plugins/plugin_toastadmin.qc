@@ -1,7 +1,8 @@
 /*
-	server/plugins/plugin_8p.qc
+	server/plugins/plugin_admin.qc
 
-	The plugin that powers chat commands for NZP: Eight Players.
+	Allows admins to kick & ban users without going into the server
+    console.
 
 	Copyright (C) 2025 ToasterPanic
 
@@ -27,12 +28,14 @@
 #ifdef FTE 
 
 //
-// ChatPlugin_8pCommand()
-// "8p" command, gives player stats for those who can't read their own
+// ToastAdmin_Kick()
+// "!kick command, kicks players
 //
-float(string params) ChatPlugin_8pCommand =
+float(string params) ToastAdmin_Kick =
 {
     CSQC_SendChatMessageToPlayer(255, sprintf("[8p] You have %f points", self.points), self);
+
+	localcmd(sprintf("[ToastAdmin] Kicked %s", params)); 
 
     return 0;
 };

@@ -43,9 +43,9 @@ float client_parse_override;
 //
 float(string params) Command_give =
 {
-	// Anti-Cheat in Co-Op.
-	if (player_count > 1 && cheats_have_been_activated == false) {
-		bprint(PRINT_HIGH, "Someone tried to issue Give in a Co-Op match. Nice try!\n");
+	// Anti-Cheat
+	if (cheats_have_been_activated == false) {
+		bprint(PRINT_HIGH, "Someone tried to cheat. Nice try!\n");
 		return COMMAND_FAILURE;
 	}
 
@@ -68,9 +68,9 @@ float(string params) Command_give =
 //
 float(string params) Command_addmoney =
 {
-	// Anti-Cheat in Co-Op.
-	if (player_count > 1 && cheats_have_been_activated == false) {
-		bprint(PRINT_HIGH, "Someone tried to issue Add Money in a Co-Op match. Nice try!\n");
+	// Anti-Cheat
+	if (cheats_have_been_activated == false) {
+		bprint(PRINT_HIGH, "Someone tried to cheat. Nice try!\n");
 		return COMMAND_FAILURE;
 	}
 
@@ -108,9 +108,9 @@ float(string params) Command_softrestart =
 //
 float(string params) Command_godmode =
 {
-	// Anti-Cheat in Co-Op.
-	if (player_count > 1 && cheats_have_been_activated == false) {
-		bprint(PRINT_HIGH, "Someone tried to issue God Mode in a Co-Op match. Nice try!\n");
+	// Anti-Cheat
+	if (cheats_have_been_activated == false) {
+		bprint(PRINT_HIGH, "Someone tried to cheat. Nice try!\n");
 		return COMMAND_FAILURE;
 	}
 
@@ -124,9 +124,9 @@ float(string params) Command_godmode =
 //
 float(string params) Command_noclip =
 {
-	// Anti-Cheat in Co-Op.
-	if (player_count > 1 && cheats_have_been_activated == false) {
-		bprint(PRINT_HIGH, "Someone tried to issue No-Clip in a Co-Op match. Nice try!\n");
+	// Anti-Cheat
+	if (cheats_have_been_activated == false) {
+		bprint(PRINT_HIGH, "Someone tried to cheat. Nice try!\n");
 		return COMMAND_FAILURE;
 	}
 
@@ -147,9 +147,9 @@ float(string params) Command_noclip =
 //
 float(string params) Command_powerup =
 {
-	// Anti-Cheat in Co-Op.
-	if (player_count > 1 && cheats_have_been_activated == false) {
-		bprint(PRINT_HIGH, "Someone tried to issue spawn_pu in a Co-Op match. Nice try!\n");
+	// Anti-Cheat
+	if (cheats_have_been_activated == false) {
+		bprint(PRINT_HIGH, "Someone tried to cheat. Nice try!\n");
 		return COMMAND_FAILURE;
 	}
 
@@ -169,9 +169,9 @@ float(string params) Command_powerup =
 //
 float(string params) Command_tracedmgmultiplier =
 {
-	// Anti-Cheat in Co-Op.
-	if (player_count > 1 && cheats_have_been_activated == false) {
-		bprint(PRINT_HIGH, "Someone tried to issue sv_tracedmgmultiplier in a Co-Op match. Nice try!\n");
+	// Anti-Cheat
+	if (cheats_have_been_activated == false) {
+		bprint(PRINT_HIGH, "Someone tried to cheat. Nice try!\n");
 		return COMMAND_FAILURE;
 	}
 
