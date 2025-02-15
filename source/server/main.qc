@@ -377,7 +377,7 @@ void() worldspawn =
 	// for some godforsaken reason configs don't work!
 	
 	autocvar(sv_maprotationbasename, "map_rotation");
-	autocvar(sv_maprotationmode, 0);
+	autocvar(sv_maprotationmode, 1);
 
 #endif // FTE
 
